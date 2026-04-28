@@ -9,7 +9,6 @@ const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -17,6 +16,14 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check, { passive: true });
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -40,6 +47,11 @@ export default function Navigation() {
     return () => observer.disconnect();
   }, []);
 
+  // Close mobile menu when resizing to desktop
+  useEffect(() => {
+    if (!isMobile) setMobileOpen(false);
+  }, [isMobile]);
+
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     const el = document.querySelector(href);
@@ -55,7 +67,7 @@ export default function Navigation() {
         right: 0,
         zIndex: 50,
         transition: "background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease",
-        background: scrolled ? "rgba(10, 15, 30, 0.85)" : "transparent",
+        background: scrolled ? "rgba(10, 15, 30, 0.9)" : "transparent",
         borderBottom: scrolled ? "1px solid rgba(59, 130, 246, 0.15)" : "1px solid transparent",
         backdropFilter: scrolled ? "blur(16px)" : "none",
       }}
@@ -69,6 +81,7 @@ export default function Navigation() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          gap: "1.5rem",
         }}
       >
         {/* Logo */}
@@ -85,110 +98,108 @@ export default function Navigation() {
             color: "#3b82f6",
             letterSpacing: "-0.02em",
             textDecoration: "none",
+            flexShrink: 0,
           }}
         >
-          RT
-          <span style={{ color: "#f0f9ff", marginLeft: "2px" }}>.</span>
+          RT<span style={{ color: "#f0f9ff" }}>.</span>
         </motion.a>
 
-        {/* Desktop links */}
-        <motion.ul
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          style={{
-            display: "flex",
-            gap: "2rem",
-            listStyle: "none",
-            margin: 0,
-            padding: 0,
-          }}
-          className="hidden md:flex"
-        >
-          {navLinks.map(({ label, href }) => (
-            <li key={href}>
-              <button
-                onClick={() => handleNavClick(href)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  fontFamily: "var(--font-dm-sans)",
-                  fontSize: "0.875rem",
-                  fontWeight: active === href ? 600 : 400,
-                  color: active === href ? "#60a5fa" : "#94a3b8",
-                  transition: "color 0.2s ease",
-                  padding: "0.25rem 0",
-                  position: "relative",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#f0f9ff")}
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = active === href ? "#60a5fa" : "#94a3b8")
-                }
-              >
-                {label}
-                {active === href && (
-                  <motion.div
-                    layoutId="nav-underline"
-                    style={{
-                      position: "absolute",
-                      bottom: -2,
-                      left: 0,
-                      right: 0,
-                      height: "2px",
-                      background: "#3b82f6",
-                      borderRadius: "1px",
-                    }}
-                  />
-                )}
-              </button>
-            </li>
-          ))}
-        </motion.ul>
+        {/* Desktop links — hidden on mobile via JS state */}
+        {!isMobile && (
+          <motion.ul
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            style={{
+              display: "flex",
+              gap: "1.5rem",
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
+              flex: 1,
+              justifyContent: "center",
+            }}
+          >
+            {navLinks.map(({ label, href }) => (
+              <li key={href}>
+                <button
+                  onClick={() => handleNavClick(href)}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontFamily: "var(--font-dm-sans)",
+                    fontSize: "0.875rem",
+                    fontWeight: active === href ? 600 : 400,
+                    color: active === href ? "#60a5fa" : "#94a3b8",
+                    transition: "color 0.2s ease",
+                    padding: "0.25rem 0",
+                    position: "relative",
+                    whiteSpace: "nowrap",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#f0f9ff")}
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = active === href ? "#60a5fa" : "#94a3b8")
+                  }
+                >
+                  {label}
+                  {active === href && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      style={{
+                        position: "absolute",
+                        bottom: -2,
+                        left: 0,
+                        right: 0,
+                        height: "2px",
+                        background: "#3b82f6",
+                        borderRadius: "1px",
+                      }}
+                    />
+                  )}
+                </button>
+              </li>
+            ))}
+          </motion.ul>
+        )}
 
-        {/* CTA */}
-        <motion.a
-          href="mailto:tomaszewski.ryszard@gmail.com"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="btn-primary hidden md:inline-flex"
-          style={{ fontSize: "0.875rem", padding: "0.5rem 1.25rem" }}
-        >
-          Contact Me
-        </motion.a>
-
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden"
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            color: "#94a3b8",
-            padding: "0.5rem",
-          }}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* Mobile hamburger — only on mobile */}
+        {isMobile && (
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: "#94a3b8",
+              padding: "0.5rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        )}
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile dropdown menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
             style={{
-              background: "rgba(10, 15, 30, 0.97)",
+              background: "rgba(10, 15, 30, 0.98)",
               borderTop: "1px solid rgba(59, 130, 246, 0.15)",
               overflow: "hidden",
             }}
           >
-            <ul style={{ listStyle: "none", margin: 0, padding: "1rem 1.5rem" }}>
+            <ul style={{ listStyle: "none", margin: 0, padding: "0.5rem 1.5rem 1rem" }}>
               {navLinks.map(({ label, href }, i) => (
                 <motion.li
                   key={href}
@@ -208,7 +219,7 @@ export default function Navigation() {
                       fontFamily: "var(--font-dm-sans)",
                       fontSize: "1rem",
                       color: active === href ? "#60a5fa" : "#94a3b8",
-                      padding: "0.75rem 0",
+                      padding: "0.875rem 0",
                       borderBottom: "1px solid rgba(59, 130, 246, 0.08)",
                     }}
                   >
@@ -216,11 +227,6 @@ export default function Navigation() {
                   </button>
                 </motion.li>
               ))}
-              <li style={{ paddingTop: "1rem" }}>
-                <a href="mailto:tomaszewski.ryszard@gmail.com" className="btn-primary">
-                  Contact Me
-                </a>
-              </li>
             </ul>
           </motion.div>
         )}
