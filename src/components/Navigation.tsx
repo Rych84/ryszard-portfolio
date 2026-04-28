@@ -54,8 +54,13 @@ export default function Navigation() {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    // Wait for menu close animation, then scroll — prevents Android race condition
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - 64;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 300);
   };
 
   return (
