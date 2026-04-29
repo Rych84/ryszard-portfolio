@@ -137,8 +137,10 @@ export default function Skills() {
                   marginLeft: "0.5rem",
                 }}
               >
-                Actively leveraging AI tools (Claude, Copilot, LLM-based test generation) to optimize
-                automation efficiency and coverage — and writing about it on this blog.
+                Actively integrating AI into daily QA workflows — using Claude Code for test script
+                generation and code reviews, Cursor AI for intelligent refactoring, and Playwright AI
+                for self-healing locator strategies. Automation frameworks are versioned and delivered
+                via GitHub, with AI accelerating every stage from design to deployment.
               </span>
             </div>
           </motion.div>

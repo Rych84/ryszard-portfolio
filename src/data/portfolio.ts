@@ -123,6 +123,17 @@ export const skillCategories = [
     items: ["AWS", "SauceLabs", "BrowserStack", "Perfecto"],
   },
   {
+    category: "AI Tools",
+    items: [
+      "Claude Code",
+      "GitHub Copilot",
+      "Cursor AI",
+      "Playwright AI",
+      "Vercel AI",
+      "v0 by Vercel",
+    ],
+  },
+  {
     category: "Tools",
     items: ["Jira", "Splunk", "HP ALM", "Telerik Fiddler"],
   },
