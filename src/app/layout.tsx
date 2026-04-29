@@ -83,6 +83,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Ryszard Tomaszewski" }],
   robots: { index: true, follow: true },
+  verification: { google: "XwUZ8P0nXpki-C9bsddWLVb6qNpdgMjva6cd13ybVKQ" },
   openGraph: {
     type: "website",
     url: siteUrl,
