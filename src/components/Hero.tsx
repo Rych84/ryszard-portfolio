@@ -254,49 +254,6 @@ export default function Hero() {
         >
           <PhotoCircle size={280} />
 
-          {/* Available badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-            aria-label="Available for consulting"
-            style={{
-              position: "absolute",
-              bottom: "10px",
-              right: "-16px",
-              background: "rgba(15, 31, 60, 0.95)",
-              border: "1px solid rgba(59, 130, 246, 0.4)",
-              borderRadius: "8px",
-              padding: "0.5rem 0.85rem",
-              backdropFilter: "blur(12px)",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              whiteSpace: "nowrap",
-            }}
-          >
-            <span
-              style={{
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                background: "#22c55e",
-                display: "inline-block",
-                flexShrink: 0,
-              }}
-              aria-hidden="true"
-            />
-            <span
-              style={{
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: "0.75rem",
-                color: "#f0f9ff",
-                fontWeight: 500,
-              }}
-            >
-              Available for Consulting
-            </span>
-          </motion.div>
         </motion.div>
       </div>
     </section>
