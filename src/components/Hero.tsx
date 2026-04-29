@@ -226,18 +226,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile (opens in new tab)"
-              style={{
-                color: "#475569",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: "0.85rem",
-                transition: "color 0.2s",
-                textDecoration: "none",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#60a5fa")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#475569")}
+              className="btn-outline"
             >
               LinkedIn <ExternalLink size={14} aria-hidden="true" />
             </a>
