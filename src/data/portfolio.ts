@@ -52,8 +52,9 @@ export const experience = [
       "Implemented BDD automation tests for international account-opening flows (HK, IN)",
       "Enhanced automation framework (WebdriverIO, SpecFlow, C#) for single-page applications",
       "Developed automation for AMEX integration and bot-detection (Crypto Cookie) initiatives",
+      "Owned UAT coordination for key compliance and business initiatives, aligning stakeholder sign-off with release gates",
     ],
-    tags: ["WebdriverIO", "SpecFlow", "C#", "BDD", "Jenkins", "SQL"],
+    tags: ["WebdriverIO", "SpecFlow", "C#", "BDD", "Jenkins", "SQL", "UAT"],
   },
   {
     id: 3,
@@ -67,8 +68,9 @@ export const experience = [
       "Led QA and compliance testing efforts for regulated financial systems",
       "Implemented CI/CD pipelines with Jenkins; cross-browser testing on BrowserStack and Perfecto",
       "Key member of the TDA-Scottrade acquisition team, integrating Scottrade accounts into TDA",
+      "Conducted UAT with business stakeholders for retail financial products; served as QA point of contact bridging engineering and business teams",
     ],
-    tags: ["Selenium", "Java", "Jenkins", "BrowserStack", "Perfecto", "REST API"],
+    tags: ["Selenium", "Java", "Jenkins", "BrowserStack", "Perfecto", "REST API", "UAT"],
   },
   {
     id: 4,
@@ -139,7 +141,7 @@ export const skillCategories = [
   },
   {
     category: "Methodologies",
-    items: ["Agile / Scrum", "Risk-Based Testing", "TDD", "Test Strategy", "DevOps"],
+    items: ["Agile / Scrum", "Risk-Based Testing", "TDD", "Test Strategy", "DevOps", "UAT / User Acceptance Testing"],
   },
 ];
 
