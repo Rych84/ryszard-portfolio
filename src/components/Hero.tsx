@@ -215,7 +215,7 @@ export default function Hero() {
               View My Work <ArrowDown size={16} aria-hidden="true" />
             </button>
             <a
-              href="/Ryszard_Tomaszewski_Sr_SDET_Lead_.pdf"
+              href="/Ryszard_Tomaszewski_Sr_SDET_Lead.pdf"
               download="Ryszard_Tomaszewski_Resume.pdf"
               className="btn-outline"
             >

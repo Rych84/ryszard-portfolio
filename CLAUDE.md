@@ -36,4 +36,4 @@ Three fonts loaded via `next/font/google` in `layout.tsx`:
 
 ### Assets
 - Profile photo: `public/images/ryszard.jpg`
-- Resume PDF: `public/Ryszard_Tomaszewski_Sr_SDET_Lead_.pdf`
+- Resume PDF: `public/Ryszard_Tomaszewski_Sr_SDET_Lead.pdf`

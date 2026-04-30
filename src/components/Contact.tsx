@@ -48,7 +48,7 @@ const links = [
   {
     label: "Resume PDF",
     value: "Download Resume",
-    href: "/Ryszard_Tomaszewski_Sr_SDET_Lead_.pdf",
+    href: "/Ryszard_Tomaszewski_Sr_SDET_Lead.pdf",
     icon: Download,
     primary: false,
     download: "Ryszard_Tomaszewski_Resume.pdf",
