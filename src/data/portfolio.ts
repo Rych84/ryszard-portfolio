@@ -8,7 +8,7 @@ export const personalInfo = {
   github: "https://github.com/Rych84",
   photo: "/images/ryszard.jpg",
   bio: "Senior SDET and QA Automation Lead with 14+ years of experience engineering quality for high-stakes enterprise applications in fintech, healthcare, and regulated industries. I build automation frameworks that scale, lead QA teams, and integrate testing deep into CI/CD pipelines — helping organizations ship faster with confidence.",
-  bio2: "Currently consulting independently, I bring the same rigor I applied at Charles Schwab and TD Ameritrade to clients across web and API testing. I'm passionate about the intersection of AI and test automation — and I write about it regularly.",
+  bio2: "Currently consulting independently, I bring the same rigor I applied at Charles Schwab and TD Ameritrade to clients across web and API testing. I'm passionate about the intersection of AI and test automation.",
 };
 
 export const stats = [

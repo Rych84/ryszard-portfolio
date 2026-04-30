@@ -89,9 +89,9 @@ export default function About() {
                 color: "#94a3b8",
               }}
             >
-              My background spans three continents — I started in Poland, worked with global teams
+              My background spans two continents — I started in Poland, worked with global teams
               at Roche across Europe and the US, and have been based in the Washington DC / Maryland
-              area since 2013. I speak English, Polish, and basic Russian.
+              area since 2016. I speak English, Polish, and basic Russian.
             </p>
           </motion.div>
 
