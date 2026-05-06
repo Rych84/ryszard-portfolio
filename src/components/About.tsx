@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin, GraduationCap, Globe } from "lucide-react";
-import { personalInfo, education } from "@/data/portfolio";
+import { personalInfo } from "@/data/portfolio";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -146,40 +146,6 @@ export default function About() {
               </div>
             ))}
 
-            {/* Education degrees */}
-            <div
-              className="card"
-              style={{ padding: "1.25rem 1.5rem" }}
-            >
-              <div
-                style={{
-                  fontFamily: "var(--font-jetbrains-mono)",
-                  fontSize: "0.65rem",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.15em",
-                  color: "#475569",
-                  marginBottom: "0.75rem",
-                }}
-              >
-                {education.university}
-              </div>
-              {education.degrees.map((deg) => (
-                <div
-                  key={deg}
-                  style={{
-                    fontFamily: "var(--font-dm-sans)",
-                    fontSize: "0.85rem",
-                    color: "#94a3b8",
-                    paddingLeft: "0.75rem",
-                    borderLeft: "2px solid rgba(59, 130, 246, 0.3)",
-                    marginBottom: "0.5rem",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {deg}
-                </div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </motion.div>
