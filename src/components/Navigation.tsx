@@ -32,19 +32,22 @@ export default function Navigation() {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
-        }
-      },
-      { rootMargin: "-40% 0px -55% 0px" }
-    );
-    navLinks.forEach(({ href }) => {
-      const el = document.querySelector(href);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
+    const sections = navLinks
+      .map(({ href }) => ({ href, el: document.querySelector(href) as HTMLElement | null }))
+      .filter(({ el }) => el !== null);
+
+    const update = () => {
+      const threshold = window.scrollY + window.innerHeight * 0.45;
+      let current = "";
+      for (const { href, el } of sections) {
+        if (el && el.offsetTop <= threshold) current = href;
+      }
+      setActive(current);
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
   }, []);
 
   // Close mobile menu when resizing to desktop
