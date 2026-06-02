@@ -30,7 +30,7 @@ export const experience = [
       "Provide SDET and QA automation consulting for web applications and REST APIs",
       "Design and maintain Selenium WebDriver frameworks using C# and Java for UI and API testing",
       "Define automation strategy and improve test coverage for microservices architectures",
-      "Accelerate test script generation and code reviews using Claude Code and GitHub Copilot — cutting boilerplate time by ~40%",
+      "Accelerate test script generation and code reviews using Claude Code and GitHub Copilot — cutting boilerplate time by ~25%",
       "Use Cursor AI IDE for intelligent refactoring and context-aware framework development",
       "Deploy and iterate client-facing QA dashboards and tooling on Vercel with Next.js",
       "Apply AI-assisted test case generation and requirements analysis to improve coverage on short-cycle sprints",
