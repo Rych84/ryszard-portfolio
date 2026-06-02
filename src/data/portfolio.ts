@@ -110,7 +110,7 @@ export const skillCategories = [
   },
   {
     category: "Programming",
-    items: ["C#", "Java", "TypeScript", "Python", "SQL"],
+    items: ["C#", "Java", "TypeScript", "SQL"],
   },
   {
     category: "API Testing",
@@ -118,7 +118,7 @@ export const skillCategories = [
   },
   {
     category: "CI/CD & DevOps",
-    items: ["Jenkins", "Bamboo", "GitHub Actions", "Git", "Bitbucket"],
+    items: ["Jenkins", "Bamboo", "Git", "Bitbucket"],
   },
   {
     category: "Cloud & Platforms",
