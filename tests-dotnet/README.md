@@ -1,7 +1,7 @@
 # Portfolio .NET/NUnit Playwright Tests
 
 .NET/NUnit port of the TypeScript Playwright suite at
-`../tests/e2e/portfolio.spec.ts`. Covers the same 12 scenarios
+`../tests/e2e/portfolio.spec.ts`. Covers the same 8 scenarios
 (Hero, Experience, Contact) against the Next.js dev server at
 `http://localhost:3000`, Chromium only.
 
