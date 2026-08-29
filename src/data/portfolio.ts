@@ -36,8 +36,9 @@ export const experience = [
       "Apply AI-assisted test case generation and requirements analysis to improve coverage on short-cycle sprints",
       "Use ChatGPT for rapid test strategy drafting, edge case brainstorming, and documentation",
       "Leverage Playwright AI for intelligent element detection and self-healing locator strategies",
+      "Contract as a generalist subject-matter expert for Mercor.com, supporting AI model training and evaluation initiatives",
     ],
-    tags: ["Selenium", "C#", "Java", "Postman", "AWS", "CI/CD", "Claude Code", "GitHub Copilot", "Cursor", "Vercel", "Next.js", "ChatGPT", "Playwright AI"],
+    tags: ["Selenium", "C#", "Java", "Postman", "AWS", "CI/CD", "Claude Code", "GitHub Copilot", "Cursor", "Vercel", "Next.js", "ChatGPT", "Playwright AI", "Mercor"],
   },
   {
     id: 2,
