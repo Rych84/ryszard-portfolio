@@ -20,6 +20,27 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Testing
+
+Two coexisting end-to-end suites cover the same 8 scenarios (Hero, Experience, Contact) against the dev server at `http://localhost:3000`. Both auto-start `npm run dev` if it isn't already running.
+
+### TypeScript (Playwright)
+
+```bash
+npx playwright test
+```
+
+Config: `playwright.config.ts`. Tests: `tests/e2e/portfolio.spec.ts`. Runs against desktop Chromium and a Pixel 5 mobile viewport.
+
+### .NET / NUnit (Playwright)
+
+```bash
+cd tests-dotnet
+dotnet test
+```
+
+Chromium only — mobile-viewport parity is a deferred fast-follow. See `tests-dotnet/README.md` for one-time setup (installing Playwright browsers).
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
