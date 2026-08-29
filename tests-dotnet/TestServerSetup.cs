@@ -10,7 +10,6 @@ namespace PortfolioTests;
 [SetUpFixture]
 public class TestServerSetup
 {
-    private const string BaseUrl = "http://localhost:3000";
     private static Process? _serverProcess;
     private static bool _startedByUs;
 
@@ -49,10 +48,18 @@ public class TestServerSetup
             {
                 return;
             }
+
+            if (_serverProcess.HasExited)
+            {
+                throw new InvalidOperationException(
+                    $"'npm run dev' exited early (code {_serverProcess.ExitCode}) before {TestConfig.BaseUrl} responded. " +
+                    "Check that npm/node are on PATH and that port 3000 isn't already occupied by an unrelated process.");
+            }
+
             await Task.Delay(500);
         }
 
-        throw new Exception($"Dev server did not respond at {BaseUrl} within 60 seconds.");
+        throw new InvalidOperationException($"Dev server did not respond at {TestConfig.BaseUrl} within 60 seconds.");
     }
 
     [OneTimeTearDown]
@@ -76,7 +83,7 @@ public class TestServerSetup
         try
         {
             using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(2) };
-            var response = await client.GetAsync(BaseUrl);
+            var response = await client.GetAsync(TestConfig.BaseUrl);
             return response.IsSuccessStatusCode;
         }
         catch

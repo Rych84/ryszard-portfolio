@@ -7,14 +7,11 @@ namespace PortfolioTests;
 
 public abstract class PortfolioTestBase : PageTest
 {
-    protected const string BaseUrl = "http://localhost:3000";
-
     public override BrowserNewContextOptions ContextOptions()
     {
-        return new BrowserNewContextOptions
-        {
-            BaseURL = BaseUrl,
-        };
+        var options = base.ContextOptions();
+        options.BaseURL = TestConfig.BaseUrl;
+        return options;
     }
 
     [SetUp]
