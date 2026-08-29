@@ -32,12 +32,10 @@ public class TestServerSetup
         {
             StartInfo = new ProcessStartInfo
             {
-                FileName = "npm",
-                Arguments = "run dev",
+                FileName = "cmd.exe",
+                Arguments = "/c npm run dev",
                 WorkingDirectory = portfolioDir,
                 UseShellExecute = false,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
                 CreateNoWindow = true,
             }
         };
